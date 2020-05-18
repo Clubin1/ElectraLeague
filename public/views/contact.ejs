@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="/assets/css/custom.css">-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<style>
+
+</style>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+
+        <nav 
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="900"
+        id="sidebar">
+            <div 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="sidebar-header">
+            <a href="/"><h3>League <span class="color-text">Dashboard</span> </h3></a><strong>L<span class="color-text">D</span></strong>
+        </div>
+
+            <ul 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="list-unstyled components">
+                <li class="active">
+                    <a href="/">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/leaderboard">
+                        <i class="fas fa-table"></i>
+                        Leaderboard
+                    </a>
+
+                    <a href="/server"">
+                        <i class="fas fa-server"></i>
+                        Servers
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="/bans">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Ban List
+                    </a>
+                </li>
+                <div class="social-row">
+                    <a href="https://twitter.com/ElectraLeague">
+                        <a href="https://twitter.com/ElectraLeague"> <li><img class="social-icon-1" src="https://img.icons8.com/color/38/000000/twitter--v1.png"/></li></a>
+
+                       <a href="https://www.twitch.tv/electraleague"> <li><img class="social-icon-2" src="https://img.icons8.com/color/38/000000/twitch--v1.png"/></li></a>
+                </div>
+            </ul>
+
+            <ul 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="list-unstyled CTAs">
+                <li>
+                    <a href="https://discord.gg/BNvNJes" class="download">Join Now</a>
+                </li>
+                <li>
+                    <a href="/contact" class="article">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        
+        <!-- Page Content  -->
+        
+        <div id="content">
+                <nav
+                data-aos="fade"
+                data-aos-offset="300"
+                data-aos-duration="900"
+                data-aos-easing="ease-in-out"
+                class="navbar top-nav navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                            <i class="fas fa-align-left"></i>
+                            <span>Toggle Sidebar</span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-align-justify"></i>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <a href="https://discord.gg/BNvNJes"><button class="btn-light">Join now</button></a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>   
+                <div class="container">  
+                    <form
+                    data-aos="fade"
+                    data-aos-offset="300"
+                    data-aos-duration="1500"
+                    data-aos-easing="ease-in-out"
+                    id="contact" action="mailto:electraleague@gmail.com">
+                      <h3 class="contact-title">Contact Form</h3>
+                      <h4 class="contact-sub">Contact us for any questions</h4>
+                      <fieldset>
+                        <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+                      </fieldset>
+                      <fieldset>
+                        <input placeholder="Your Email Address" type="email" tabindex="2" required>
+                      </fieldset>
+                      <fieldset>
+                        <input placeholder="Your Steam Name (optional)" type="tel" tabindex="3" required>
+                      </fieldset>
+                      <fieldset>
+                        <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+                      </fieldset>
+                      <fieldset>
+                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                      </fieldset>
+                    </form>
+                  </div> 
+            </div>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    </body>
+    </html>
