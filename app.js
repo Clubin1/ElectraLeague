@@ -11,7 +11,10 @@ const {getPlayersPage} = require('./routes/player');
 const {getServerPage} = require('./routes/server');
 const {getHomePage} = require('./routes/index');
 const {getLeaderboardPage} = require('./routes/leaderboard');
-// const {addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log(`Server running on port: ${port}`);
+});
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
@@ -32,7 +35,6 @@ db.connect((err) => {
 global.db = db;
 
 // configure middleware
-app.set('port', process.env.port || port); // set express to use this port
 app.set('views', __dirname + '/public/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -62,7 +64,3 @@ app.get('/player/:single', (req,res) => {
     })
 })
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-    console.log(`Server running on port: ${port}`);
-});
