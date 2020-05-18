@@ -12,7 +12,6 @@ const {getServerPage} = require('./routes/server');
 const {getHomePage} = require('./routes/index');
 const {getLeaderboardPage} = require('./routes/leaderboard');
 // const {addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
-const port = 5000;
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
@@ -63,6 +62,7 @@ app.get('/player/:single', (req,res) => {
     })
 })
 
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
