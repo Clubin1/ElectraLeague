@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% article.forEach(function(articles){%>
+       <h1> <%= articles.newsName %> </h1>
+    <% }) %>
+    <div class="post-news">
+        <h1 class="article-title">Articles</h1>
+        <form action="/admin" method="post">
+            <label for="name">Enter the name and body in the database</label>
+            <input type="text" name="name" placeholder="article name">
+            <input type="text" name="article" placeholder="article body">
+            <input type="submit" value="submit" />
+            </form>
+    </div>
+
+    <div class="post-news">
+        <h1 class="event-title">Events</h1>
+        <form action="/admin2" method="post">
+            <label for="name">Enter the name and body in the database</label>
+            <input type="text" name="name" placeholder="event name">
+            <input type="text" name="body" placeholder="event body">
+            <input type="submit" value="submit" />
+            </form>
+    </div>
+
+    <form action="/logout?_method=delete" method="POST">
+        <button stype="submit">LogOut</button>
+        </form>
+</body>
+</html>
