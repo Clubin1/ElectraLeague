@@ -70,9 +70,9 @@ app.use(express.static(path.join(__dirname, 'public'))); // configure express to
 app.use(fileUpload()); // configure fileupload
 app.use(flash())
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
 }))
 app.use(passport.initialize())
 app.use(passport.session())
@@ -85,7 +85,6 @@ app.get('/players', getPlayersPage);
 app.get('/server', getServerPage);
 app.get('/bans', getBansPage);
 app.get('/contact', getContactPage);
-app.get('/admin', checkAuthenticated, getAdminPage)
 app.get('/login', getLoginPage)
 app.get('/register', getRegisterPage)
 
@@ -121,36 +120,6 @@ app.post('/admin2', (req, res) => {
     res.redirect('/admin')
 })
 
-app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs')
-})
-
-app.post('/login', passport.authenticate('local', {
-    successRedirect: '/admin',
-    failureRedirect: '/login',
-    failureFlash: true
-}))
-
-app.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.ejs')
-})
-
-app.post('/register', checkNotAuthenticated, async (req,res) =>{
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
-            id: Date.now().toString(),
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword
-        })
-        res.redirect('/login')
-    } catch {
-        res.redirect('/register')
-    }
-})
-
-
 app.delete('/logout', (req, res) => {
     req.logOut()
     res.redirect('/login')
@@ -160,7 +129,6 @@ function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
     }
-
     res.redirect('/login')
 }
 
@@ -170,3 +138,48 @@ function checkNotAuthenticated(req, res, next) {
     }
     next()
 }
+
+//login
+app.post('/login', function(request, response) {
+	var username = request.body.name;
+	var password = request.body.password;
+	if (username && password) {
+		db.query('SELECT * FROM registered_users WHERE name = ? AND password = ?', [username, password], function(error, results, fields) {
+			if (results.length > 0) {
+				request.session.loggedin = true;
+				request.session.username = username;
+				response.redirect('/admin');
+			} else {
+				response.send('Incorrect Username and/or Password!');
+			}			
+			response.end();
+		});
+	} else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
+});
+
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  }))
+
+//Register
+app.post('/register', (req, res) => {
+    db.query('INSERT INTO registered_users (name, email, password) Value(?, ?, ?);', [req.body.name, req.body.email ,req.body.password], (err, result)=>{
+        if(err) throw err;
+    })
+    res.redirect('/login')
+})
+
+app.get('/admin', (req, res) => {
+	if (req.session.loggedin) {
+		res.send('Welcome back, ' + req.session.username + '!');
+	} else {
+		res.send('Please login to view this page!');
+	}
+	res.end();
+});
+
