@@ -87,7 +87,7 @@ app.get('/bans', getBansPage);
 app.get('/contact', getContactPage);
 app.get('/home', getHome2Page)
 
-// Haredest fucking query in the world like this was some stupid bs that dont know why or how it worked but it worked
+//
 app.get('/player/:single', (req,res) => {
     db.query("SELECT * FROM rankme;", (err, result) => {
         const chosen = result.find(f => f.id === parseInt(req.params.single));
