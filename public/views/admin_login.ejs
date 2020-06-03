@@ -2,8 +2,8 @@
 <% if (messages.error) { %>
     <%= messages.error %>
 <% } %>
-<form action="/login" method="POST">
-    <h1>User Login</h1>
+<form action="/admin_login" method="POST">
+    <h1>Admin Login</h1>
     <div>
         <label for="name">name</label>
         <input type="name" id="name" name="name" required>
@@ -13,5 +13,4 @@
         <input type="password" id="password" name="password" required>
     </div>
     <button type="submit">Login</button>
-    <a href="/register">Register</a>
 </form>

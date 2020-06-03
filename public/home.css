@@ -1,0 +1,112 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
+/* Basic styling */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #171616!important;
+  background: #000000 !important;
+  overflow-x: hidden;
+  z-index: -100;
+}
+BODY {
+    -webkit-font-smoothing: antialiased;
+    z-index: -100;
+  }
+  
+  canvas {
+    z-index: -100;
+    position: relative;
+    top: 0px;
+  }
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+  #particles-js{
+  height: 100%;
+  z-index: -100;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100%;
+ }
+  .caption {
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 38%;
+    z-index: 1;
+    color: white;
+    animation: fadeIn 2s;
+  }
+  
+  .caption h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: .3rem;
+    text-shadow: .1rem .1rem .8rem black;
+  }
+  
+  .caption h3 {
+    font-size: 2rem;
+    text-shadow: .1rem .1rem .5rem black;
+    color:rgb(226, 226, 226)!important;
+    margin-left: -1rem;
+    margin-top: -1rem;
+  }
+  
+  .info-col{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-12{
+      position: relative;
+      top: 2rem;
+  }
+
+  .stem-icons{
+      position: relative;
+      top: 22rem;
+  }
+
+  .rights{
+    position: relative;
+    top: 23rem;
+}
+
+.links{
+    display: flex;
+    justify-content: space-evenly;
+    font-size:1rem;
+    position: relative;
+    top: 4rem;
+}
+
+.shrink{
+    width: 100%;
+    justify-content: center;
+    display: flex
+}
+.link-1{
+    margin-left: -8rem;
+    position: absolute;
+}
+.link-2{
+    margin-left: -1rem;
+    position: absolute;
+}
+.link-3{
+    margin-left: 4rem;
+    position: absolute;
+}
+.link-4{
+    margin-left:10rem;
+    position: absolute;
+}

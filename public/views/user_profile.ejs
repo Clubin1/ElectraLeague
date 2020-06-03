@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="notstyle.css">
 </head>
 <body>
-    
+    <h1>User profile</h1>
+    <form action="/user_logout?_method=delete" method="POST">
+        <button stype="submit">LogOut</button>
+    </form>
+    <form action="/user" method="post" class="search-container">
+        <input type="text" id="search-bar" placeholder="Link account with existing player">
+        <button type="submit">submit</button>
+        <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+      </form>
 </body>
 </html>
