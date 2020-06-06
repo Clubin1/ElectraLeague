@@ -222,6 +222,7 @@ app.get('/admin_login', (req,res) =>{
     })
 })
 
+
 //User login
 app.get('/login', (req,res) =>{
     db.query('SELECT * FROM registered_users;', (err, result) => {
@@ -235,6 +236,8 @@ app.get('/login', (req,res) =>{
                 article:result
             })
         }
+        
+    
     })
 })
 //login
@@ -260,7 +263,10 @@ app.post('/login', function(request, response) {
 });
 //User Page and account linkage
 app.get('/user', (req,res) =>{
+   
     db.query('SELECT * FROM registered_users;', (err, result) => {
+       
+   
         if(err) throw err
         console.log(result) 
         
@@ -268,12 +274,29 @@ app.get('/user', (req,res) =>{
             res.render('user_profile.ejs', {
                 username:req.session.username,
                 article:result
+                
             })
         } else{
             res.send('pls login')
         }
+     console.log(req.session.username)
     })
+
 })
+app.post('/user', (req, res) => {
+   
+    console.log(`${req.body.name}`)
+    db.query('SELECT * FROM rankme WHERE name = ?', [req.body.name], (err, res) => {
+        if(err) throw err
+        console.log(`${res[0].score}<====================`)
+        console.log(req.session.username)
+        db.query('UPDATE registered_users SET rankme_name = ? WHERE name = ?', [res[0].name, req.session.username], (err, res) => {
+            console.log('ehyyy')
+        })
+       
+    } )
+})
+
 /*
 app.get('/admin_login', (req,res) =>{
     db.query('SELECT * FROM registered_users;', (err, result) => {

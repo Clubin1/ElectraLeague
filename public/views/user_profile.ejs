@@ -12,9 +12,10 @@
     <form action="/user_logout?_method=delete" method="POST">
         <button stype="submit">LogOut</button>
     </form>
-    <form action="/user" method="post" class="search-container">
-        <input type="text" id="search-bar" placeholder="Link account with existing player">
-        <button type="submit">submit</button>
+    <form action="/user" method="POST" class="search-container">
+        <input type="text" id="search-bar" name="name" placeholder="Link account with existing player">
+            <input type="submit" value="find!">
+
         <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
       </form>
 </body>
