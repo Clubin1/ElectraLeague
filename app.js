@@ -31,11 +31,6 @@ const {getServerPage} = require('./routes/server');
 const {getHomePage} = require('./routes/index');
 const {getLeaderboardPage} = require('./routes/leaderboard');
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-    console.log(`Server running on port: ${port}`);
-});
-
 const initializePassport = require('./passport-config')
 initializePassport(
     passport,
@@ -140,7 +135,7 @@ app.post('/admin_login', function(request, response) {
 	if (username && password) {
 		db.query('SELECT * FROM admin_users   WHERE name = ? AND password = ?', [username, password], function(error, results, fields) {
 			if (results.length > 0) {
-				request.session.loggedin = true;
+				request.session.loggedIn = true;
 				request.session.username = username;
 				response.redirect('/admin');
 			} else {
@@ -200,7 +195,7 @@ app.get('/admin', (req,res) =>{
         if(err) throw err
         console.log(result) 
         
-        if(req.session.loggedin){
+        if(req.session.loggedIn){
             res.render('admin.ejs', {
                 name:req.session.username,
                 article:result
@@ -217,7 +212,7 @@ app.get('/admin_login', (req,res) =>{
         if(err) throw err
         console.log(result) 
         
-        if(req.session.loggedin){
+        if(req.session.loggedIn){
             res.send('Already logged in')
         } else{
             res.render('admin_login.ejs', {
@@ -249,7 +244,8 @@ app.post('/login', function(request, response) {
 	if (username && password) {
 		db.query('SELECT * FROM registered_users WHERE name = ? AND password = ?', [username, password], function(error, results, fields) {
 			if (results.length > 0) {
-				request.session.loggedin = true;
+                request.session.loggedin = true;
+                request.session.loggedIN = true;
 				request.session.username = username;
 				response.redirect('/user');
 			} else {
@@ -270,7 +266,7 @@ app.get('/user', (req,res) =>{
         
         if(req.session.loggedin){
             res.render('user_profile.ejs', {
-                name:req.session.username,
+                username:req.session.username,
                 article:result
             })
         } else{
@@ -321,6 +317,55 @@ app.get('/register', (req,res) =>{
             res.render('register.ejs', {
                 user: result
             });
+        }
+    })
+})
+/*
+app.get('/message', (req, res, next)=>{
+    res.render('message.ejs')
+})
+
+io.on('connection', (socket)=>{
+    console.log("a user connected via socket!")
+    socket.on('disconnect', ()=>{
+        console.log("a user disconnected!")
+    })
+    socket.on('chat message', (msg)=>{
+        console.log("Message: "+msg)
+        io.emit('chat message', msg)
+    })
+})
+*/
+const server = require('http').createServer(app)
+const port = process.env.PORT || 5000;
+server.listen(port, () => {
+    console.log(`Server running on port: ${port}`);
+})
+
+const io = require('socket.io')(server)
+
+io.on('connection', (socket)=>{
+    console.log("a user connected via socket!")
+    socket.on('disconnect', ()=>{
+        console.log("a user disconnected!")
+    })
+    socket.on('chat message', (msg)=>{
+        console.log("Message: "+msg)
+        io.emit('chat message', msg)
+    })
+})
+
+app.get('/message', (req,res) =>{
+    db.query('SELECT * FROM registered_users;', (err, result) => {
+        if(err) throw err
+        console.log(result) 
+        if(req.session.loggedIN){
+            res.render('message.ejs', {
+                username:req.session.username,
+                article:result
+            })
+        } else{
+            res.send('pls login')
         }
     })
 })

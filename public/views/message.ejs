@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Socket.io Chat Server</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            
+            <ul class="list-group" id="messages"></ul>
+            
+        </div>
+        <div style="position: fixed; bottom:0;width:100vw;">
+            <form action="">
+                <input type="text" name="" id="m" class="form-control" placeholder="Enter the message..." value="" required="required" title="" style="background:rgb(34, 20, 48);color:white;">
+            </form>
+        </div>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+            $('form').submit(function(){
+                var msg = $('#m').val();
+                if(msg.length > 0)
+                    socket.emit('chat message', msg);
+                else
+                    console.log("Enter a valid msg :)");
+                $('#m').val("");
+                return false;
+            });
+            socket.on('chat message', function(msg){
+                $("#messages").append('<li class="list-group-item">'+'<h4>'+'<%= username %>:'+msg+'</h4>'+'</li>');
+            });
+        </script>
+    </body>
+</html>
