@@ -11,7 +11,7 @@
 body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #171616!important;
-  background: #000000 !important;
+  background: #0c0c0c !important;
   overflow-x: hidden;
   z-index: -100;
 }
@@ -91,21 +91,39 @@ BODY {
 .shrink{
     width: 100%;
     justify-content: center;
-    display: flex
+    display: flex;
 }
 .link-1{
-    margin-left: -8rem;
+    margin-left: -19rem;
     position: absolute;
 }
 .link-2{
-    margin-left: -1rem;
+    margin-left: -8rem;
     position: absolute;
 }
 .link-3{
-    margin-left: 4rem;
+    margin-left: -3rem;
     position: absolute;
 }
 .link-4{
-    margin-left:10rem;
+    margin-left:7rem;
     position: absolute;
+}
+
+.link-5{
+  margin-left:3rem;
+  position: absolute;
+}
+.link-6{
+  margin-left:13rem;
+  position: absolute;
+}
+.links a{
+  color: #727272!important;
+  font-size: 1.5rem;
+  transition: 300ms ease all;
+}
+
+.links a:hover{
+  color: #aaaaaa!important;
 }

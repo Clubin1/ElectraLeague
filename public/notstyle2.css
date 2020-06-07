@@ -1,4 +1,59 @@
 .top-nav{
     position: relative;
-    top: -75rem;
+    top: -60rem;
 }
+.server-info-section{
+        height: 20rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background: rgb(22,22,22)!important;
+}
+
+.wrpr{
+    margin-top: 5rem;
+}
+
+@media(max-width: 1564px) {
+    .server-info-section{
+        height: 31rem;
+    }
+    .top-nav{
+        position: relative;
+        top: -71rem;
+    }
+}
+
+
+@media(max-width: 1122px) {
+    .server-info-section{
+        height: 46rem;
+    }
+    .top-nav{
+        position: relative;
+        top: -86rem;
+    }
+}
+
+@media(max-width:768px) {
+    .color-text{
+      font-size: 1.7rem;
+    }
+    .color-stats{
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media(max-width:415px) {
+    .color-text{
+      font-size: 1.2rem;
+    }
+    .color-stats{
+      font-size: .9rem;
+    }
+    .server-btn{
+        width: 15rem!important;
+    }
+  }

@@ -21,82 +21,116 @@
     <div class="wrapper">
         <!-- Sidebar  -->
 
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <a href="/"><h3>League Dashboard</h3></a>                <strong>LD</strong>
-            </div>
+        <nav 
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="900"
+        id="sidebar">
+            <div 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="sidebar-header">
+            <a href="/"><img src="img/Electra_Banner.png" alt="" class="nav-logo"></a> <a href="/"><img class="nav-img-2" src="img/Logo.png" alt=""></a>
+        </div>
 
-            <ul class="list-unstyled components">
+            <ul 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="list-unstyled components">
                 <li class="active">
-                    <a href="/">
+                    <a href="/home">
                         <i class="fas fa-home"></i>
                         Home
                     </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="/leaderboard">
                         <i class="fas fa-table"></i>
                         Leaderboard
                     </a>
-                    <a href="/players"">
-                        <i class="fas fa-user"></i>
-                        Players
-                    </a>
+
                     <a href="/server"">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-server"></i>
                         Servers
                     </a>
                 </li>
                
                 <li>
                     <a href="/bans">
-                        <i class="fas fa-exclamation-triangle"></i>
+                        <i class="fas fa-ban"></i>
                         Ban List
                     </a>
+                    <a href="/bans-appeal">
+                        <i class="fas fa-check-square"></i>
+                        Ban Appeal
+                    </a>
+                    <a href="/bans-appeal">
+                        <i class="fas fa-question-circle"></i>
+                        FAQ
+                    </a>
+
                 </li>
+                <div class="social-row">
+                    <a href="https://twitter.com/ElectraLeague"> <li><img class="social-icon-1" src="https://img.icons8.com/color/28/000000/twitter--v1.png"/></li></a>
+                       <a href="https://www.twitch.tv/electraleague"> <li><img class="social-icon-2" src="https://img.icons8.com/color/28/000000/twitch--v1.png"/></li></a>
+                </div>
             </ul>
 
-            <ul class="list-unstyled CTAs">
+            <ul 
+            data-aos="fade"
+            data-aos-offset="-300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="list-unstyled CTAs">
                 <li>
                     <a href="https://discord.gg/BNvNJes" class="download">Join Now</a>
                 </li>
                 <li>
-                    <a href="/contact" class="article">Contact</a>
+                    <a href="/contact" class="download">Contact</a>
                 </li>
-            </ul>
-            <ul class="list-unstyled CTAs social-icons">
-                <i class="fas fa-user"></i>
-                <i class="fas fa-user"></i>
-                <i class="fas fa-user"></i>
-
-                <i class="fas fa-user"></i>
-
             </ul>
         </nav>
 
-        
         <!-- Page Content  -->
         
         <div id="content">
-                <nav class="navbar top-nav navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>Toggle Sidebar</span>
-                        </button>
-                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="nav navbar-nav ml-auto">
-                                <a href="https://discord.gg/BNvNJes"><button class="btn-light">Join now</button></a>
+            <nav 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-duration="900"
+            data-aos-easing="ease-in-out"
+            class="navbar top-nav navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                        <ul class="nav navbar-nav ml-auto">
+                               <a href="/login"><button class="btn-light btn-1 btn-hide">Login</button></a>
                             </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>  
+                        </ul>
+                        <ul class="nav nav-position navbar-nav ml-auto">
+                            <a href="/register"><button class="btn-light btn-2 btn-hide">Register</button></a>
+                         </li>
+                     </ul>
+                </div>
+            </nav>    
                 <section class="card-section">
                     <div class="center-card">
                         <% user.forEach(function(player){%>

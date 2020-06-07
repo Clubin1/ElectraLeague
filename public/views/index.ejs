@@ -34,7 +34,7 @@
             data-aos-easing="ease-in-out"
             data-aos-duration="1900"
             class="sidebar-header">
-            <a href="/"><h3>League <span class="color-text">Dashboard</span> </h3></a><strong>L<span class="color-text">D</span></strong>
+            <a href="/"><img src="img/Electra_Banner.png" alt="" class="nav-logo"></a> <a href="/"><img class="nav-img-2" src="img/Logo.png" alt=""></a>
         </div>
 
             <ul 
@@ -44,7 +44,7 @@
             data-aos-duration="1900"
             class="list-unstyled components">
                 <li class="active">
-                    <a href="/">
+                    <a href="/home">
                         <i class="fas fa-home"></i>
                         Home
                     </a>
@@ -74,19 +74,28 @@
                
                 <li>
                     <a href="/bans">
-                        <i class="fas fa-exclamation-triangle"></i>
+                        <i class="fas fa-ban"></i>
                         Ban List
                     </a>
+                    <a href="/bans-appeal">
+                        <i class="fas fa-check-square"></i>
+                        Ban Appeal
+                    </a>
+                    <a href="/bans-appeal">
+                        <i class="fas fa-question-circle"></i>
+                        FAQ
+                    </a>
+
                 </li>
                 <div class="social-row">
-                    <a href="https://twitter.com/ElectraLeague"> <li><img class="social-icon-1" src="https://img.icons8.com/color/38/000000/twitter--v1.png"/></li></a>
-                       <a href="https://www.twitch.tv/electraleague"> <li><img class="social-icon-2" src="https://img.icons8.com/color/38/000000/twitch--v1.png"/></li></a>
+                    <a href="https://twitter.com/ElectraLeague"> <li><img class="social-icon-1" src="https://img.icons8.com/color/28/000000/twitter--v1.png"/></li></a>
+                       <a href="https://www.twitch.tv/electraleague"> <li><img class="social-icon-2" src="https://img.icons8.com/color/28/000000/twitch--v1.png"/></li></a>
                 </div>
             </ul>
 
             <ul 
             data-aos="fade"
-            data-aos-offset="300"
+            data-aos-offset="-300"
             data-aos-easing="ease-in-out"
             data-aos-duration="1900"
             class="list-unstyled CTAs">
@@ -94,7 +103,7 @@
                     <a href="https://discord.gg/BNvNJes" class="download">Join Now</a>
                 </li>
                 <li>
-                    <a href="/contact" class="article">Contact</a>
+                    <a href="/contact" class="download">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -109,7 +118,7 @@
             data-aos-offset="300"
             data-aos-duration="900"
             data-aos-easing="ease-in-out"
-            class="background text-center">
+            class="background2 text-center">
                 <h1 class="img-title">Welcome to Electra League <br> Player Stats</h1>
                 <h5 class="img-sub">With this page you can <span class="color-text">track your stats </span> on any server running the RankMe plugin. You can also check where you fall on the leaderboards  <br> and who current sits atop the leaderboads. You can search and <span class="color-text"> sort by various stats</span> and check various graphs!</h5>
                 <a href="https://discord.gg/BNvNJes"><span class="btn">Play Now</span></a>
@@ -121,22 +130,18 @@
                 data-aos-easing="ease-in-out"
                 class="navbar top-nav navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
-
                         <button type="button" id="sidebarCollapse" class="btn btn-info">
                             <i class="fas fa-align-left"></i>
                             <span>Toggle Sidebar</span>
                         </button>
-                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
-                                   <a href="https://discord.gg/BNvNJes"><button class="btn-light">Join now</button></a>
+                                   <a href="/login"><button class="btn-light btn-1 btn-hide">Login</button></a>
                                 </li>
                             </ul>
-                            
-                        </div>
+                            <ul class="nav nav-position navbar-nav ml-auto">
+                                <a href="/register"><button class="btn-light btn-2 btn-hide">Register</button></a>
+                             </li>
+                         </ul>
                     </div>
                 </nav>    
 
@@ -156,10 +161,7 @@
                     class="card-1 text-center">
                         <h1 class="card-title">View Our Leaderboard</h1>
                         <p>We give prizes to our top <br> players, climb the ranks today</p>
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-arrow-right"></i>
-                           <a href="/leaderboard"><span> Top Players</span></a> 
-                        </button>
+                            <a href="/leaderboard"><button style="width: 20rem" class="server-btn btn">See Our Leaderboard</button></a>
                     </div>
                     <div 
                     data-aos="fade"
@@ -170,10 +172,7 @@
                     class="card-2 text-center">
                         <h1 class="card-title">View Our Servers</h1>
                         <p>Check out our 128 tick servers <br> with great 24/7 admin support</p>
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-arrow-right"></i>
-                           <a href="/server"><span>Our Servers</span></a>
-                        </button>
+                            <a href="/server"><button style="width: 20rem" class="server-btn btn">Our Servers</button></a>
                     </div>
                     <div 
                     data-aos="fade"
@@ -184,10 +183,7 @@
                     class="card-3 text-center">
                         <h1 class="card-title">View Our Ban List</h1>
                         <p>Electra League tries our best to <br> punish cheaters and to keep the community clean</p>
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-arrow-right"></i>
-                           <a href="/bans"><span>Banned Players</span></a>
-                        </button>
+                        <a href="/bans"><button style="width: 20rem" class="server-btn btn">Banned Players</button></a>
                     </div>
                 </div>              
         </div>

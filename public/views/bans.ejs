@@ -20,7 +20,6 @@
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-
         <nav 
         data-aos="fade-right"
         data-aos-offset="300"
@@ -33,7 +32,7 @@
             data-aos-easing="ease-in-out"
             data-aos-duration="1900"
             class="sidebar-header">
-            <a href="/"><h3>League <span class="color-text">Dashboard</span> </h3></a><strong>L<span class="color-text">D</span></strong>
+            <a href="/"><img src="img/Electra_Banner.png" alt="" class="nav-logo"></a> <a href="/"><img class="nav-img-2" src="img/Logo.png" alt=""></a>
         </div>
 
             <ul 
@@ -43,7 +42,7 @@
             data-aos-duration="1900"
             class="list-unstyled components">
                 <li class="active">
-                    <a href="/">
+                    <a href="/home">
                         <i class="fas fa-home"></i>
                         Home
                     </a>
@@ -71,23 +70,31 @@
                     </a>
                 </li>
                
+                 
                 <li>
                     <a href="/bans">
-                        <i class="fas fa-exclamation-triangle"></i>
+                        <i class="fas fa-ban"></i>
                         Ban List
                     </a>
+                    <a href="/bans-appeal">
+                        <i class="fas fa-check-square"></i>
+                        Ban Appeal
+                    </a>
+                    <a href="/bans-appeal">
+                        <i class="fas fa-question-circle"></i>
+                        FAQ
+                    </a>
+
                 </li>
                 <div class="social-row">
-                    <a href="https://twitter.com/ElectraLeague">
-                        <a href="https://twitter.com/ElectraLeague"> <li><img class="social-icon-1" src="https://img.icons8.com/color/38/000000/twitter--v1.png"/></li></a>
-
-                       <a href="https://www.twitch.tv/electraleague"> <li><img class="social-icon-2" src="https://img.icons8.com/color/38/000000/twitch--v1.png"/></li></a>
+                    <a href="https://twitter.com/ElectraLeague"> <li><img class="social-icon-1" src="https://img.icons8.com/color/28/000000/twitter--v1.png"/></li></a>
+                       <a href="https://www.twitch.tv/electraleague"> <li><img class="social-icon-2" src="https://img.icons8.com/color/28/000000/twitch--v1.png"/></li></a>
                 </div>
             </ul>
 
             <ul 
             data-aos="fade"
-            data-aos-offset="300"
+            data-aos-offset="-300"
             data-aos-easing="ease-in-out"
             data-aos-duration="1900"
             class="list-unstyled CTAs">
@@ -95,38 +102,36 @@
                     <a href="https://discord.gg/BNvNJes" class="download">Join Now</a>
                 </li>
                 <li>
-                    <a href="/contact" class="article">Contact</a>
+                    <a href="/contact" class="download">Contact</a>
                 </li>
             </ul>
         </nav>
 
+
         <!-- Page Content  -->
         
         <div id="content">
-                <nav 
-                data-aos="fade"
-                data-aos-offset="300"
-                data-aos-duration="900"
-                data-aos-easing="ease-in-out"
-                class="navbar top-nav navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>Toggle Sidebar</span>
-                        </button>
-                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="nav navbar-nav ml-auto">
-                                <a href="https://discord.gg/BNvNJes"><button class="btn-light">Join now</button></a>
+            <nav 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-duration="900"
+            data-aos-easing="ease-in-out"
+            class="navbar top-nav navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                        <ul class="nav navbar-nav ml-auto">
+                               <a href="/login"><button class="btn-light btn-1 btn-hide">Login</button></a>
                             </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>   
+                        </ul>
+                        <ul class="nav nav-position navbar-nav ml-auto">
+                            <a href="/register"><button class="btn-light btn-2 btn-hide">Register</button></a>
+                         </li>
+                     </ul>
+                </div>
+            </nav>     
                 <div class="ban-col">
                     <h1 
                     data-aos="fade"
@@ -150,27 +155,28 @@
                         width: 2px!important;
                         }
                     </style>
-                    <div class="table-wrapper">
-                            <table 
+                    <div class="total-wrapper-2">
+                        <div class="table-wrapper">
+                            <table
                             data-aos="fade"
                             data-aos-offset="300"
                             data-aos-duration="1300"
                             data-aos-easing="ease-in-out"
                             class="table">
-                                <thead 
-                                data-aos="fade"
-                                data-aos-offset="300"
-                                data-aos-duration="1500"
-                                data-aos-easing="ease-in-out"
-                                class="" id="red">
-                                    <tr>
-                                        <th scope="col">Player</th>
+                                <thead class="" id="red">
+                                    <tr
+                                    data-aos="fade"
+                                    data-aos-offset="300"
+                                    data-aos-duration="1500"
+                                    data-aos-easing="ease-in-out"
+                                    >
+                                      <!--<th scope="col">ID</th>-->
+                                        <th scope="col">Name</th>
                                         <th scope="col">Type</th>
-                                        <th scope="col">Rep</th>
+                                        <th scope="col">Game</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Duration</th>
-                                        <th scope="col">Profile</th>
-
+                                        <th scope="col">SteamID</th>
                                     </tr>
                                 </thead>
                                 <tbody
@@ -179,16 +185,17 @@
                                 data-aos-duration="1700"
                                 data-aos-easing="ease-in-out"
                                 >
+                                    <% user.forEach(function(player){%>
                                         <tr>
-                                            <th scope="row">Clubin</th>
-                                            <th scope="row">Cheating</th>
-                                            <th scope="row">-20</th>
-                                            <th scope="row">04/20/20</th>
-                                            <th scope="row">indefinetly</th>
-                                            <td>
-                                                <a href="/player" class="btn btn-sm btn-success">Profile</a>
-                                            </td>
+                                           <!--<th scope="row">insert ejs rank</th>-->
+                                            <td><%= player.name %></td>
+                                            <td><%= player.type %></td>
+                                            <td><%= player.game %></td>
+                                            <td><%= player.data %></td>
+                                            <td><%= player.duration%></td>
+                                            <td><%= player.steam_id %></td>
                                         </tr>
+                                    <% }) %>
                                 </tbody>
                             </table>
                     </div>

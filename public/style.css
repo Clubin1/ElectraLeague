@@ -130,13 +130,18 @@ max-width: 100px;
 text-align: center;
 }
 
-#sidebar.active .sidebar-header h3,
+
+#sidebar.active .sidebar-header .nav-logo,
 #sidebar.active .CTAs {
 display: none;
 }
 
-#sidebar.active .sidebar-header strong {
+#sidebar.active .sidebar-header .nav-img-2 {
 display: block;
+}
+
+#sidebar .nav-img-2{
+  display: none;
 }
 
 #sidebar ul li a {
@@ -311,26 +316,51 @@ MEDIAQUERIES
 #content{background: transparent!important;}
 }
 .welcome-wrapper{
-    background: rgb(33, 33, 33);
-    height: 20rem;
+  background: rgb(22,22,22)!important;
+  height: 20rem;
     width: 100%;
 }
 .background{
     background: linear-gradient(
         rgba(0, 0, 0, 0.85), 
-        rgba(0, 0, 0, 0.85)),url('img/pic.png');
+        rgba(0, 0, 0, 0.85)),url('img/mirage.jpg');
     height: 35rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    z-index: -10;
+
 }
 
+.background2{
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.85), 
+      rgba(0, 0, 0, 0.85)),url('img/pic.png');
+  height: 35rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -10;
+}
+
+.nav-img-2{
+  height: 7rem;
+  width: 10rem;
+  position: relative;
+  left: -3.2rem;
+}
 .welcome-wrapper{
     position: relative;
     top: -4rem;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.nav-logo{
+  height: 9rem;
+  width: 13rem;
+  position: relative;
 }
 .img-title{
     color:white;
@@ -539,14 +569,6 @@ fieldset {
   flex-direction: row;
   display: flex;
 }
-.server-info-section{
-  height: 10rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
 
 .server-col{
   display: flex;
@@ -664,4 +686,144 @@ fieldset {
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+}
+
+.nav-position{
+  position: absolute;
+  right: 8rem;
+}
+
+@media(max-width:768px) {
+  #sidebar ul li a {
+    font-size: 0.5em;
+    }
+  .nav-logo{
+    display: none;
+  }
+  .btn-hide{
+    display: none;
+  }
+
+}
+
+#sidebar.active .social-icon-1{
+  position: relative;
+  left: 0rem;
+  padding: .5rem .5rem .5rem .5rem;
+
+}
+
+#sidebar.active .social-icon-2{
+  position: relative;
+  left: 0rem;
+  padding: .5rem .5rem .5rem .5rem;
+
+}
+
+.btn-2{
+  background: rgb(44, 44, 44)!important;
+color: rgb(118, 213, 115)!important;
+}
+
+button .btn-hide:hover{
+    color: rgb(255, 255, 255)!important;
+    background: rgb(88, 88, 88)!important;
+}
+
+/*****HOME MEDIA QUERIES*****/
+@media(max-width:1230px) {
+  .welcome-wrapper{
+    height: 30rem!important;
+  }
+}
+
+@media(max-width:850px) {
+  .welcome-wrapper{
+    height: 50rem!important;
+  }
+}
+
+@media(max-width:768px) {
+  .img-title,.card-title{
+    font-size: 1.7rem;
+  }
+  .img-sub{
+    font-size: 1.2rem;
+  }
+}
+
+@media(max-width:415px) {
+  .img-title,.card-title{
+    font-size: 1.2rem;
+  }
+  .img-sub{
+    font-size: .8rem;
+  }
+  .welcome-wrapper .card-1, .card-2, .card-3 p {
+    font-size: .8rem;
+  }
+}
+
+/****LEADERBOARD QUERIES*****/
+@media(max-width:675px) {
+  .ban-title{
+    font-size: 1.7rem;
+    position: relative;
+    left: -1.5rem;
+  }
+  .ban-info{
+    font-size: 1.2rem;
+    position: relative;
+    left: -1.5rem;
+  }
+}
+@media(max-width:549px) {
+  .table-wrapper{
+    left: 2rem;
+    position: relative;
+  }
+}
+
+@media(max-width:490px) {
+  .table-wrapper{
+    left: 5rem;
+    position: relative;
+  }
+}
+
+@media(max-width:386px) {
+  .table-wrapper{
+    left: 7rem;
+    position: relative;
+  }
+}
+
+@media(max-width:333px) {
+  .table-wrapper{
+    left: 9rem;
+    position: relative;
+  }
+}
+
+.image-content{
+  z-index: 10;
+}
+
+  
+@media(max-width:415px) {
+  .color-text{
+    font-size: 1.2rem;
+  }
+  .color-stats{
+    font-size: .9rem;
+  }
+  .server-btn{
+      width: 15rem!important;
+  }
+}
+
+@media(max-width:330px) {
+  .contact-title, .contact-sub{
+    text-align: center;
+  }
 }

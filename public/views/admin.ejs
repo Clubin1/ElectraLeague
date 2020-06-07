@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <% article.forEach(function(articles){%>
+<!--  <% article.forEach(function(articles){%>
        <h1> <%= articles.newsName %> </h1>
-    <% }) %>
+       <% }) %>-->
     <div class="post-news">
         <h1 class="article-title">Articles</h1>
         <form action="/admin" method="post">
@@ -28,6 +28,22 @@
             <input type="submit" value="submit" />
             </form>
     </div>
+
+    
+    <div class="post-ban">
+        <h1 class="ban-title">Ban Players</h1>
+        <form action="/admin3" method="post">
+            <label for="name">Enter the details on the banned player</label>
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="type" placeholder="type">
+            <input type="text" name="game" placeholder="game">
+            <input type="text" name="duration" placeholder="duration">
+            <input type="text" name="steam_id" placeholder="steam_id">
+            <input type="submit" value="submit" />
+            </form>
+    </div>
+
+    
 
     <form action="/logout?_method=delete" method="POST">
         <button stype="submit">LogOut</button>

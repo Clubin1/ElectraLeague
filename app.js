@@ -74,13 +74,13 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 //BRINGING IN ROUTES//
-app.get('/', getHomePage);
+app.get('/', getHome2Page);
 app.get('/leaderboard', getLeaderboardPage);
 app.get('/players', getPlayersPage);
 app.get('/server', getServerPage);
 app.get('/bans', getBansPage);
 app.get('/contact', getContactPage);
-app.get('/home', getHome2Page)
+app.get('/home', getHomePage)
 
 //
 app.get('/player/:single', (req,res) => {
@@ -109,6 +109,13 @@ app.post('/admin', (req, res) => {
 //-----POST EVENTS REQUEST CODE------//
 app.post('/admin2', (req, res) => {
     db.query('INSERT INTO events (name, body) Value(?, ?);', [req.body.name, req.body.body], (err, result)=>{
+        if(err) throw err;
+    })
+    res.redirect('/admin')
+})
+//-----POST BANS REQUEST CODE------//
+app.post('/admin3', (req, res) => {
+    db.query('INSERT INTO banned_users (name, type, game, duration, steam_id) Value(?, ?, ?, ?, ?);', [req.body.name, req.body.type, req.body.game, req.body.duration, req.body.steam_id], (err, result)=>{
         if(err) throw err;
     })
     res.redirect('/admin')
@@ -201,7 +208,7 @@ app.get('/admin', (req,res) =>{
                 article:result
             })
         } else{
-            res.send('pls login')
+            res.redirect('/admin_login')
         }
     })
 })
@@ -213,7 +220,7 @@ app.get('/admin_login', (req,res) =>{
         console.log(result) 
         
         if(req.session.loggedIn){
-            res.send('Already logged in')
+            res.redirect('/admin')
         } else{
             res.render('admin_login.ejs', {
                 article:result
@@ -230,7 +237,7 @@ app.get('/login', (req,res) =>{
         console.log(result) 
         
         if(req.session.loggedin){
-            res.send('Already logged in')
+            res.redirect('/user')
         } else{
             res.render('login.ejs', {
                 article:result
@@ -277,7 +284,7 @@ app.get('/user', (req,res) =>{
                 
             })
         } else{
-            res.send('pls login')
+            res.redirect('/login')
         }
      console.log(req.session.username)
     })
@@ -285,17 +292,22 @@ app.get('/user', (req,res) =>{
 })
 app.post('/user', (req, res) => {
    
+
     console.log(`${req.body.name}`)
     db.query('SELECT * FROM rankme WHERE name = ?', [req.body.name], (err, res) => {
         if(err) throw err
         console.log(`${res[0].deaths}<====================`)
         console.log(req.session.username)
-        db.query('UPDATE registered_users SET rankme_name = ?, deaths = ? WHERE name = ?', [res[0].name, res[0].deaths, req.session.username], (err, result) => {
+        db.query('UPDATE registered_users SET rankme_name = ?, deaths = ?, score = ?, kills = ?, headshots = ?, match_win = ?, match_lose = ?, match_draw = ? WHERE name = ?', 
+        [res[0].name, res[0].deaths, res[0].score, res[0].kills, res[0].headshots, res[0].match_win, res[0].match_lose, res[0].match_draw, req.session.username], (err, result) => {
             console.log('hey')
         })
        
-    } )
+    })
+    res.redirect('/user')
 })
+
+
 
 /*
 app.get('/admin_login', (req,res) =>{
