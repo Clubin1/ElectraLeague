@@ -105,14 +105,14 @@ app.get('/player/:single', (req,res) => {
 
 //-----POST NEWS REQUEST CODE------//
 app.post('/admin', (req, res) => {
-    db.query('INSERT INTO article (name, body) Value(?, ?);', [req.body.name, req.body.article], (err, result)=>{
+    db.query('INSERT INTO article (name, body, imgg) Value(?, ?, ?);', [req.body.name, req.body.article, req.body.imgg], (err, result)=>{
         if(err) throw err;
     })
     res.redirect('/admin')
 })
 //-----POST EVENTS REQUEST CODE------//
 app.post('/admin2', (req, res) => {
-    db.query('INSERT INTO events (namee, bodyy) Value(?, ?);', [req.body.namee, req.body.bodyy], (err, result)=>{
+    db.query('INSERT INTO events (namee, bodyy, img) Value(?, ?, ?);', [req.body.namee, req.body.bodyy, req.body.img], (err, result)=>{
         if(err) throw err;
     })
     res.redirect('/admin')

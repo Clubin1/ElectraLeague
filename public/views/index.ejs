@@ -5,9 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="/assets/css/custom.css">-->
     <!-- AOS JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -188,7 +191,12 @@
                 </div>    
                 
                 <div class="events-wrpr">
-                    <h1 class="events-title">Events</h1>
+                    <h1 
+                    data-aos="fade"
+                    data-aos-offset="-10"
+                    data-aos-duration="1500"
+                    data-aos-easing="ease-in-out"
+                    class="events-title">Events</h1>
                     <div class="server-info-section">
                         <% event.forEach(function(events){%>
                             <div 
@@ -197,13 +205,19 @@
                             data-aos-duration="1500"
                             data-aos-easing="ease-in-out"
                             class="server-col text-center">
+                            <img src="<$ events.img %>" alt="failed to load">
                             <h3 class="color-text"><%= events.namee %> </h3>
                             <h4 class="color-stats"><%= events.bodyy %></h4>
                             </div>
                         <% }) %>    
                 </div>
                 <div class="events-wrpr">
-                    <h1 class="article-title">Articles</h1>
+                    <h1 
+                    data-aos="fade"
+                    data-aos-offset="-10"
+                    data-aos-duration="1500"
+                    data-aos-easing="ease-in-out"
+                    class="article-title">Articles</h1>
                     <div class="server-info-section">
                         <% article.forEach(function(articles){%>
                             <div 
@@ -212,13 +226,46 @@
                             data-aos-duration="1500"
                             data-aos-easing="ease-in-out"
                             class="server-col text-center">
+                            <img src='<%= articles.imgg %>' alt="failed to load213"/>
                             <h3 class="color-text"><%= articles.name %> </h3>
                             <h4 class="color-stats"><%= articles.body %></h4>
+
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Open modal
+                      </button>
+                            </div>
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                          
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">Modal Heading</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                             <% articles.body %>
+                            </div>
+                            
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                            
+                          </div>
+                        </div>
                             </div>
                         <% }) %>    
+                      
                 </div>
                 </div>
-            
+
+                
+                    
+                  </div>
         </div>
     </div>
     <!-- I havent slept for many moons.-->
