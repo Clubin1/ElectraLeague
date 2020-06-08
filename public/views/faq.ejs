@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="/assets/css/custom.css">-->
+    <!-- AOS JS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="faq.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="accordion.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav 
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="900"
+        id="sidebar">
+            <div 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="sidebar-header">
+            <a href="/"><img src="img/Electra_Banner.png" alt="" class="nav-logo"></a> <a href="/"><img class="nav-img-2" src="img/Logo.png" alt=""></a>
+        </div>
+
+            <ul 
+            data-aos="fade"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="list-unstyled components">
+                <li class="">
+                    <a href="/home">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/leaderboard">
+                        <i class="fas fa-table"></i>
+                        Leaderboard
+                    </a>
+
+                    <a href="/server"">
+                        <i class="fas fa-server"></i>
+                        Servers
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="/bans">
+                        <i class="fas fa-ban"></i>
+                        Ban List
+                    </a>
+                    <a href="/appeal">
+                        <i class="fas fa-check-square"></i>
+                        Ban Appeal
+                    </a>
+                    <a href="/faq">
+                        <i class="fas fa-question-circle"></i>
+                        FAQ
+                    </a>
+
+                </li>
+                <div class="social-row">
+                    <a href="https://twitter.com/ElectraLeague"> <li><img class="social-icon-1" src="https://img.icons8.com/color/28/000000/twitter--v1.png"/></li></a>
+                       <a href="https://www.twitch.tv/electraleague"> <li><img class="social-icon-2" src="https://img.icons8.com/color/28/000000/twitch--v1.png"/></li></a>
+                </div>
+            </ul>
+
+            <ul 
+            data-aos="fade"
+            data-aos-offset="-300"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1900"
+            class="list-unstyled CTAs">
+                <li>
+                    <a href="https://discord.gg/BNvNJes" class="download">Join Now</a>
+                </li>
+                <li>
+                    <a href="/contact" class="download">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+                <!-- Page Content  -->
+        <!--
+    
+        -->
+                <div id="content">
+                        <nav 
+                        data-aos="fade"
+                        data-aos-offset="300"
+                        data-aos-duration="900"
+                        data-aos-easing="ease-in-out"
+                        class="navbar top-nav navbar-expand-lg navbar-light bg-light">
+                            <div class="container-fluid">
+                                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                                    <i class="fas fa-align-left"></i>
+                                    <span>Toggle Sidebar</span>
+                                </button>
+                                    <ul class="nav navbar-nav ml-auto">
+                                           <a href="/login"><button class="btn-light btn-1 btn-hide">Login</button></a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav nav-position navbar-nav ml-auto">
+                                        <a href="/register"><button class="btn-light btn-2 btn-hide">Register</button></a>
+                                     </li>
+                                 </ul>
+                            </div>
+                        </nav>    
+                        <div id="container">
+
+                            <ul class="faq">
+                                <li class="q"><i class="ion-chevron-right"></i>How can I tell if it is time to ask for some help?
+                                </li>
+                                <li class="a">
+                                    <ul>
+                                        <li class="bullet-1">When you feel as if you can't do it alone
+                                        </li>
+                                        <li class="bullet-2">When you feel trapped, as if there is nowhere to turn
+                                        </li>
+                                        <li class="bullet-3">When you worry all the time, and never seem to find answers
+                                        </li>
+                                        <li class="bullet-4">When the way you feel is affecting your sleep, your eating habits, your job, your relationships, your everyday life
+                                        </li>
+                                        <li class="bullet-5"> When issues such as marital or family problems, child rearing, severe illness or injury, death of a loved one, career changes, school problems, or crises associate with aging are making it difficult to cope with the routine demands of daily living.
+                                        </li>
+                                    </ul>
+                                </li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>What is a psychologist?</li>
+                                <li class="a">Psychologists are highly trained professionals with expertise in the areas of human behavior, mental health assessment, diagnosis, treatment, and behavior change. Psychologists apply scientifically validated procedures to help people change their thoughts, emotions, and behaviors, and to cope better with difficult situations.
+                                    <ul>
+                                        <li class="second-para">In North Carolina, licensed psychologists have a doctoral degree in psychology. After graduation from college, licensed psychologists spend an average of 7 years in graduate education, training, and research. As part of their professional training they complete a supervised clinical internship in a hospital or organized health setting, and at least one year of post-doctoral supervised experience before they can practice independently in any health care arena. Licensed psychological associates have a master's degree in psychology. They also have graduate-level training, a clinical internship, and post-graduate supervision.
+                
+                                        </li>
+                                    </ul>
+                                </li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>How can I find a psychologist?</li>
+                                <li class="a">First, gather information. Talk to your doctor or other health professionals. Today, many family practitioners work with a team of providers, including psychologists, and can refer you to one that they know and trust. Consult the department of psychology at a local college or university, or the local community mental health center. You could also ask a clergy member, as well as family members and friends who may know or have heard about individual psychologists in your community.</li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>How can I choose a psychologist who is right for me? </li>
+                                <li class="a">Once you have the name of several psychologists, there are several questions you'll want to ask, including:
+                                    <ul>
+                                        <li class="bullet-1">Are you a licensed psychologist or licensed psychological associate? How long have you been practicing?
+                                        </li>
+                                        <li class="bullet-2">What areas do you specialize in? (such as family therapy, child psychology, adult psychotherapy, etc.)
+                                        </li>
+                                        <li class="bullet-3">What kind of treatment do you usually use, and why do you feel this would be effective for my situation? How long would you expect my treatment to last?
+                                        </li>
+                                        <li class="bullet-4">What are your fees? Do you accept my insurance or HMO coverage? Will you directly bill my insurance company? Do you have a sliding fee scale, or will you set up a payment plan?
+                                        </li>
+                                    </ul>
+                                </li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>How does therapy work?</li>
+                                <li class="a">Therapy works by helping you look objectively at behaviors, feelings, and thoughts in situations that you find problematic. It helps you to learn more effective ways to deal with those situations.
+                                    <br>
+                                    <br> Therapy is a collaborative effort. You and your psychologist will identify your goals - what you want to have happen - and agree on how you'll know when you are making progress. Your psychologist will talk with you about the length of time it may take to help you see changes.
+                                    <br>
+                                    <br> Progress and change can happen. Nine out of ten Americans surveyed by Consumer Reports said that psychotherapy had helped them. And, in another recent major national study, half of the clients studied were making improvement after eight sessions of therapy, 75% after six months of therapy.
+                
+                                </li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>What is a Psychiatrist</li>
+                                <li class="a">A psychiatrist is a physician (MD or DO) who completes medical school and an additional three or four year psychiatric residency, and is licensed to prescribe medications.
+                                </li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>What is a psychotherapist or counselor?</li>
+                                <li class="a">Psychotherapists and counselors may have various kinds of training of varying quality. Some therapists/counselors have only a bachelor's degree, some have a master's degree, and some have a doctorate. A person who describes himself/herself as a "psychotherapist" is not necessarily a licensed psychologist.
+                                </li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>Is therapy included in my health plan coverage?</li>
+                                <li class="a">Many health plans, including HMOs, provide some level of coverage for psychological services.
+                                    <br>
+                                    <br> If you do not have coverage and will be paying out of pocket, you can talk with your psychologist about sliding scale fees or working out a payment plan. Community mental health centers are also an alternative.
+                
+                                </li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>How should I evaluate my insurance coverage for psychological services?</li>
+                                <li class="a">
+                                    <ul>
+                                        <li class="bullet-1">Call your insurance health plan representative to find out exactly what is covered - outpatient therapy, inpatient treatment, etc. - and what level of coverage you have.
+                                        </li>
+                                        <li class="bullet-2"> Ask about co-payments, deductibles, and annual or lifetime maximums.
+                                        </li>
+                                        <li class="bullet-3">Ask who determines how many treatment sessions will be covered, and how/when that decision is made.
+                                        </li>
+                                        <li class="bullet-4">Ask what you can do if your coverage is denied or cut short.
+                                        </li>
+                                        <li class="bullet-5">Find out if there is a group of providers, a "network" that you must choose from, or if you can choose any qualified provider. If you can choose any qualified provider, find out what licenses or degree he or she must have before coverage is authorized.
+                                        </li>
+                                    </ul>
+                                </li>
+                
+                                <li class="q"><i class="ion-chevron-right"></i>What if I do not have insurance coverage, or if the coverage is inadequate? </li>
+                                <li class="a">You can talk with the benefits or human resource manager at your place of employment. Let him/her know that you believe mental health services are important, and that you are concerned that you have limited or no coverage. If you belong to a union, you can talk to your union leaders.
+                                </li>
+                
+                            </ul>
+                        </div>
+            </div>
+        
+
+    </body>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script>
+            AOS.init();
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+</html>

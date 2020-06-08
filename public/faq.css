@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Pro|Poppins|Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+
+
+html{
+    scroll-behavior: smooth;
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+  .faq-wrapper{
+    height: 7rem;
+    width: 100vw;
+    height: 7rem;
+    background-size: cover;
+    background-repeat: no-repeat!important;
+    display: flex;
+    justify-content: center;
+}
+
+/***** RESETS *****/
+
+
+ul, li {
+    list-style: none;
+}
+
+#container {
+    width: 60%;
+    margin: 0 20%;
+    overflow: auto;
+    margin-top:6rem;
+    padding-bottom: 6rem;
+}
+
+i {
+    margin-right: 1em;
+}
+
+.faq li {
+    padding: 1.25em;
+}
+
+.faq li.q {
+    font-weight: bold;
+    font-size: 120%;
+    border-bottom: 1px #ccc solid;
+    cursor: pointer;
+}
+
+.faq li.q:nth-child(1),
+.faq li.q:nth-child(5),
+.faq li.q:nth-child(9),
+.faq li.q:nth-child(13),
+.faq li.q:nth-child(17){
+    background: #eee;
+}
+
+.faq li.a {
+    color: #ba6b6b;
+    background: #fff;
+    display: none;
+}
+
+img {
+    margin-right: .5em;
+}

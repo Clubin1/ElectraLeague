@@ -828,3 +828,47 @@ button .btn-hide:hover{
   }
 }
 
+.events-wrapper{
+  background: rgb(22,22,22);
+}
+
+.server-info-section{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 3rem;
+}
+
+.events-wrpr{
+  background: rgb(22,22,22)!important;
+}
+.server-col{
+  width: 20rem;
+}
+
+.events-title, .article-title{
+  color:rgb(231, 231, 231);
+  padding-left: 3rem;
+  padding-top: 3rem;
+}
+
+@media(max-width:360px) {
+  .events-title, .article-title{
+    text-align: center;
+    margin-left: -3rem!important;
+  }
+   .color-stats{
+    font-size: .8rem;
+  }
+}
+
+@media(max-width:400px) {
+  .ban-title{
+    text-align: center;
+  }
+  .ban-info{
+    text-align: center;
+  }
+}

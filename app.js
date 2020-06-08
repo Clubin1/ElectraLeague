@@ -30,6 +30,8 @@ const {getPlayersPage} = require('./routes/player');
 const {getServerPage} = require('./routes/server');
 const {getHomePage} = require('./routes/index');
 const {getLeaderboardPage} = require('./routes/leaderboard');
+const {getAppealPage} = require('./routes/banappeal')
+const {getFaqPage} = require('./routes/faq')
 
 const initializePassport = require('./passport-config')
 initializePassport(
@@ -81,6 +83,8 @@ app.get('/server', getServerPage);
 app.get('/bans', getBansPage);
 app.get('/contact', getContactPage);
 app.get('/home', getHomePage)
+app.get('/appeal', getAppealPage)
+app.get('/faq', getFaqPage)
 
 //
 app.get('/player/:single', (req,res) => {
@@ -108,7 +112,7 @@ app.post('/admin', (req, res) => {
 })
 //-----POST EVENTS REQUEST CODE------//
 app.post('/admin2', (req, res) => {
-    db.query('INSERT INTO events (name, body) Value(?, ?);', [req.body.name, req.body.body], (err, result)=>{
+    db.query('INSERT INTO events (namee, bodyy) Value(?, ?);', [req.body.namee, req.body.bodyy], (err, result)=>{
         if(err) throw err;
     })
     res.redirect('/admin')

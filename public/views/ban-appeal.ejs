@@ -7,13 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="/assets/css/custom.css">-->
-    <!-- AOS JS-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../notstyle2.css">
     <title></title>
 </head>
 <style>
@@ -110,83 +108,81 @@
             </ul>
         </nav>
 
+        
         <!-- Page Content  -->
         
         <div id="content">
-            <div 
+            <nav 
             data-aos="fade"
             data-aos-offset="300"
             data-aos-duration="900"
             data-aos-easing="ease-in-out"
-            class="background text-center">
-            <h1 class="img-title">We offer an amazing player experience <br> that is made by players and for the players!                </h1>
-                <h5 class="img-sub">We hope to give players a broad expiernce starting from 10 Mans, league games and even retake servers.</h5>
-               <a href="#server-info"> <span class="btn">Join Our Servers Now!</span></a>
+            class="navbar top-nav navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                        <ul class="nav navbar-nav ml-auto">
+                               <a href="/login"><button class="btn-light btn-1 btn-hide">Login</button></a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-position navbar-nav ml-auto">
+                            <a href="/register"><button class="btn-light btn-2 btn-hide">Register</button></a>
+                         </li>
+                     </ul>
+                </div>
+            </nav>    
+            <div class="ban-col">
+                <h1 
+                data-aos="fade"
+                data-aos-offset="300"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+                class="ban-title">
+                    Ban Appeal
+                </h1> 
+                <h4 
+                data-aos="fade"
+                data-aos-offset="300"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+                class="ban-info">If you have been banned and you are innocent or you want to appeal for an existing ban fill the form out. Not everyone can get their bans revoked due to our value in integretiy, but if you would like a second chance let us know.
+                </h4>
             </div>
-            <div class="wrapper-server">
-                <!--<div class="server-section">
-                    <img 
-                    data-aos="fade"
-                    data-aos-offset="300"
-                    data-aos-duration="1200"
-                    data-aos-easing="ease-in-out"
-                    class="server-img" src="img/csgo.jpg" alt="">
-                    
-                    <ul 
+                <div class="container">  
+                    <form
                     data-aos="fade"
                     data-aos-offset="300"
                     data-aos-duration="1500"
                     data-aos-easing="ease-in-out"
-                    class="server-info">
-                        <li class="server-item">128 Tick Servers</li>
-                        <li class="server-item">24/7 Admin Support</li>
-                        <li class="server-item">Cash Monthly Prizes with Bi-Monthly Leaderboards</li>
-                        <li class="server-item">Mandatory Discord</li>
-                        <li class="server-item">Chicago Server Locations</li>
-                    </ul>
-            </div>-->
+                    id="contact" action="mailto:electraleague@gmail.com">
+                      <h3 class="contact-title">Appeal Form</h3>
+                      <h4 class="contact-sub">Fill out the form and we'll get back to you.</h4>
+                      <fieldset>
+                        <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+                      </fieldset>
+                      <fieldset>
+                        <input placeholder="Your Email Address" type="email" tabindex="2" required>
+                      </fieldset>
+                      <fieldset>
+                        <input placeholder="Your Steam Name (optional)" type="tel" tabindex="3" required>
+                      </fieldset>
+                      <fieldset>
+                        <input placeholder="Reason for ban" type="tel" tabindex="4" required>
+                      </fieldset>
+                      <fieldset>
+                        <input placeholder="Why we should unban you" type="tel" tabindex="5" required>
+                      </fieldset>
+                      <fieldset>
+                        <textarea placeholder="Anything else you want us to know..." tabindex="6" required></textarea>
+                      </fieldset>
+                      <fieldset>
+                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                      </fieldset>
+                    </form>
+                  </div> 
             </div>
-            <div class="wrpr">
-                <div id="server-info" class="server-info-section">
-                    <% user.forEach(function(player){%>
-                        <div 
-                        data-aos="fade"
-                        data-aos-offset="-10"
-                        data-aos-duration="1500"
-                        data-aos-easing="ease-in-out"
-                        class="server-col text-center">
-                            <h3 class="color-text"><%= player.serverName %> </h3>
-                            <h4 class="color-stats"><%= player.serverIP %></h4>
-                            <h4 class="color-stats">Port: <%= player.serverPort %> </h4>
-                            <a href="<%= player.serverJoin %>"><button style="width: 20rem" class="server-btn btn">Join</button></a>
-                        </div>
-                    <% }) %>    
-            </div>
-            
-            </div>
-                <nav 
-                data-aos="fade"
-                data-aos-offset="300"
-                data-aos-duration="900"
-                data-aos-easing="ease-in-out"
-                class="navbar top-nav navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>Toggle Sidebar</span>
-                        </button>
-                            <ul class="nav navbar-nav ml-auto">
-                                   <a href="/login"><button class="btn-light btn-1 btn-hide">Login</button></a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-position navbar-nav ml-auto">
-                                <a href="/register"><button class="btn-light btn-2 btn-hide">Register</button></a>
-                             </li>
-                         </ul>
-                    </div>
-                </nav>             
-        </div>
-    </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
