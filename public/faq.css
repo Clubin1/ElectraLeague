@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Crimson+Pro|Poppins|Roboto+Slab&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 html{
     scroll-behavior: smooth;
   }
@@ -25,7 +21,18 @@ html{
 }
 
 /***** RESETS *****/
-
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1b1b1b;
+    }
+    
+    p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+    }
 
 ul, li {
     list-style: none;
@@ -45,12 +52,12 @@ i {
 
 .faq li {
     padding: 1.25em;
+    color: white;
 }
 
 .faq li.q {
-    font-weight: bold;
     font-size: 120%;
-    border-bottom: 1px #ccc solid;
+    border-bottom: 1px rgb(41, 41, 41) solid;
     cursor: pointer;
 }
 
@@ -59,12 +66,12 @@ i {
 .faq li.q:nth-child(9),
 .faq li.q:nth-child(13),
 .faq li.q:nth-child(17){
-    background: #eee;
+    background: rgb(22,22,22);
 }
 
 .faq li.a {
-    color: #ba6b6b;
-    background: #fff;
+    color: #6bba75;
+    background: rgb(22,22,22);
     display: none;
 }
 

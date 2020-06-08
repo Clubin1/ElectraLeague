@@ -205,9 +205,38 @@
                             data-aos-duration="1500"
                             data-aos-easing="ease-in-out"
                             class="server-col text-center">
-                            <img style="width: 20rem; height: 20rem" src='<%= events.img %>' alt="failed to load213"/>
-                            <h3 class="color-text"><%= events.namee %> </h3>
-                            <h4 class="color-stats"><%= events.bodyy %></h4>
+                            <img style="width: 20rem; height: 20rem" class="events-image" src='<%= events.img %>' alt="failed to load213"/>
+                            <h3 class="color-text events-name"><%= events.namee %> </h3>
+                            <p class=" article-name"><%= events.date %> </p>
+                                                <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalid<%= events.id %>">
+                        Open modal
+                      </button>
+                            </div>
+                            <div class="modal fade" id="modalid<%= events.id%>">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                  
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                      <h3 class="color-text modal-title"><%= events.namee %> </h3>
+        
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                     <%= events.bodyy %>
+                                     <p class=" article-name"><%= events.date %> </p>
+                                    </div>
+                                    
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                    
+                                  </div>
+                                </div>
                             </div>
                         <% }) %>    
                 </div>
@@ -226,10 +255,9 @@
                             data-aos-duration="1500"
                             data-aos-easing="ease-in-out"
                             class="server-col text-center">
-                            <img style="width: 20rem; height: 20rem" src='<%= articles.imgg %>' alt="failed to load213"/>
-                            <h3 class="color-text"><%= articles.name %> </h3>
-                            <h4 class="color-stats"><%= articles.body %></h4>
-
+                            <img style="width: 20rem; height: 20rem" class="articles-image" src='<%= articles.imgg %>' alt="failed to load213"/>
+                            <h3 class="color-text article-name"><%= articles.name %> </h3>
+                            <p class=" article-name"><%= articles.date %> </p>
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalid<%= articles.id %>">
                         Open modal
@@ -249,6 +277,8 @@
                             <!-- Modal body -->
                             <div class="modal-body">
                              <%= articles.body %>
+                             <p class=" article-name"><%= articles.date %> </p>
+
                             </div>
                             
                             <!-- Modal footer -->
