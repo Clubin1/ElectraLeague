@@ -204,7 +204,7 @@ app.get('/admin', (req, res) => {
 });
 */
 app.get('/admin', (req,res) =>{
-    db.query('SELECT * FROM article UNION SELECT * FROM events;', (err, result) => {
+    db.query('SELECT * FROM article;', (err, result) => {
         if(err) throw err
         console.log(result) 
         
