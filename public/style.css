@@ -621,7 +621,7 @@ fieldset {
 .player-stats-wrapper{
   background-color: rgb(22,22,22);
   height: 85%;
-  width: 100%;
+  width: 100rem!important;
 }
 #chartDiv{
   position: relative;
@@ -965,3 +965,31 @@ a .btn-4, a .btn-4{
 .user-container h4{
   color: rgb(228, 228, 228)!important;
 }
+
+#chartDiv{
+  min-width: 98rem;
+  width: 98rem;
+}
+
+@media(max-width:562px) {
+.table-wrapper{
+  min-width: 96rem;
+  width: 96rem;
+  position: relative;
+  left: -1rem;
+}
+}
+
+@media(max-width:439px) {
+  .table-wrapper{
+    min-width: 93rem;
+    width: 93rem;
+  }
+  }
+
+  @media(max-width:768px) {
+    #chartDiv2{
+      position: relative;
+      left: -18rem!important;
+    }
+  }
