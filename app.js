@@ -300,7 +300,6 @@ app.post('/user', (req, res) => {
     console.log(`${req.body.name}`)
     db.query('SELECT * FROM rankme WHERE name = ?', [req.body.name], (err, res) => {
         if(err) throw err
-        console.log(`${res[0].deaths}<====================`)
         console.log(req.session.username)
         db.query('UPDATE registered_users SET rankme_name = ? WHERE name = ?', 
         [res[0].name, req.session.username], (err, result) => {
