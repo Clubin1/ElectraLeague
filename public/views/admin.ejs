@@ -21,7 +21,6 @@
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-
         <nav 
         data-aos="fade-right"
         data-aos-offset="300"
@@ -44,21 +43,10 @@
             data-aos-duration="1900"
             class="list-unstyled components">
                 <li class="active">
-                    <a href="/home">
+                    <a href="/">
                         <i class="fas fa-home"></i>
                         Home
                     </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="/leaderboard">
@@ -72,7 +60,6 @@
                     </a>
                 </li>
                
-                  
                 <li>
                     <a href="/bans">
                         <i class="fas fa-ban"></i>
@@ -85,6 +72,11 @@
                     <a href="/faq">
                         <i class="fas fa-question-circle"></i>
                         FAQ
+                    </a>
+
+                    <a href="/Contact">
+                        <i class="fas fa-envelope"></i>
+                        Contact
                     </a>
 
                 </li>
@@ -103,11 +95,9 @@
                 <li>
                     <a href="https://discord.gg/BNvNJes" class="download">Join Now</a>
                 </li>
-                <li>
-                    <a href="/contact" class="download">Contact</a>
-                </li>
             </ul>
         </nav>
+
 
         
         <!-- Page Content  -->
@@ -139,7 +129,7 @@
        <div class="container-admin">
         <div class="post-news">
             <div class="form-wrapper">
-                <h1 class="article-title-admin">Articles</h1>
+                <h1 class="article-title-admin">News</h1>
                 <form class="form-container"action="/admin" method="post">
                     <label for="name">Enter the name and body in the database</label>
                     <input type="text" name="name" placeholder="article name">
@@ -151,7 +141,7 @@
             </div>
         </div>
      
-        <div class="post-news">
+        <!--<div class="post-news">
             <h1 class="event-title-admin">Events</h1>
             <form class="form-container" action="/admin2" method="post">
                 <label for="name">Enter the name and body in the database</label>
@@ -160,7 +150,7 @@
                 <input type="text" name="img" placeholder="event image">
                 <input class="form-btn" type="submit" value="submit" />
                 </form>
-        </div>
+        </div>-->
      
         
         <div class="post-ban">

@@ -76,13 +76,12 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 //BRINGING IN ROUTES//
-app.get('/', getHome2Page);
+app.get('/', getHomePage);
 app.get('/leaderboard', getLeaderboardPage);
 app.get('/players', getPlayersPage);
 app.get('/server', getServerPage);
 app.get('/bans', getBansPage);
 app.get('/contact', getContactPage);
-app.get('/home', getHomePage)
 app.get('/appeal', getAppealPage)
 app.get('/faq', getFaqPage)
 
@@ -111,12 +110,15 @@ app.post('/admin', (req, res) => {
     res.redirect('/admin')
 })
 //-----POST EVENTS REQUEST CODE------//
+
+/*
 app.post('/admin2', (req, res) => {
     db.query('INSERT INTO events (namee, bodyy, img) Value(?, ?, ?);', [req.body.namee, req.body.bodyy, req.body.img], (err, result)=>{
         if(err) throw err;
     })
     res.redirect('/admin')
 })
+*/
 //-----POST BANS REQUEST CODE------//
 app.post('/admin3', (req, res) => {
     db.query('INSERT INTO banned_users (name, type, game, duration, steam_id) Value(?, ?, ?, ?, ?);', [req.body.name, req.body.type, req.body.game, req.body.duration, req.body.steam_id], (err, result)=>{
@@ -407,3 +409,4 @@ app.get('/message', (req,res) =>{
         }
     })
 })
+
