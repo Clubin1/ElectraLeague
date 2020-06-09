@@ -296,6 +296,7 @@ app.get('/user', (req,res) =>{
     })
 
 })
+//Link player query
 app.post('/user', (req, res) => {
    
 
@@ -303,8 +304,8 @@ app.post('/user', (req, res) => {
     db.query('SELECT * FROM rankme WHERE name = ?', [req.body.name], (err, res) => {
         if(err) throw err
         console.log(req.session.username)
-        db.query('UPDATE registered_users SET rankme_name = ? WHERE name = ?', 
-        [res[0].name, req.session.username], (err, result) => {
+        db.query('UPDATE registered_users SET rankme_name = ?, rankme_score = ? WHERE name = ?', 
+        [res[0].name, res[0].score, req.session.username], (err, result) => {
             console.log('hey')
         })
        

@@ -46,6 +46,12 @@
             data-aos-easing="ease-in-out"
             data-aos-duration="1900"
             class="list-unstyled components">
+            <li class="">
+                <a href="/user">
+                    <i class="fas fa-user"></i>
+                    User: <%= username %>
+                </a>
+            </li>
                 <li class="active">
                     <a href="/">
                         <i class="fas fa-home"></i>
@@ -128,15 +134,21 @@
                             <i class="fas fa-align-left"></i>
                             <span>Toggle Sidebar</span>
                         </button>
-                        <h4>User: <%= username %></h4>
-                            <ul class="nav navbar-nav ml-auto">
-                                   <a href="/login"><button class="btn-light btn-1 ">Login</button></a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-position navbar-nav ml-auto">
-                                <a href="/register"><button class="btn-light btn-2 ">Register</button></a>
-                             </li>
-                         </ul>
+                         <ul class="nav navbar-nav ml-auto">
+                            <a href="/login"><button id="btn-js-show2" class="btn-light btn-1 ">Profile</button></a>
+                            <a href="/login"><button id="btn-js2" class="btn-light btn-1 ">Login</button></a>
+
+                         </li>
+                     </ul>
+                     <ul class="nav nav-position navbar-nav ml-auto">
+
+                    <form action="/user_logout?_method=delete" method="POST">
+                         <a href="/login"><button id="btn-js-show" class="btn-light btn-2 ">Logout</button></a>
+                    </form>
+                         <a href="/register"><button id="btn-js" class="btn-light btn-2 ">Register</button></a>
+
+                      </li>
+                  </ul>
                     </div>
                 </nav>    
 
@@ -242,6 +254,11 @@
                   </div>
         </div>
     </div>
+
+    <%if (loggedIn) { %>
+        <script src="hide.js"></script>
+    <% } %>
+
     <!-- I havent slept for many moons.-->
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
