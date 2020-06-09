@@ -302,8 +302,8 @@ app.post('/user', (req, res) => {
         if(err) throw err
         console.log(`${res[0].deaths}<====================`)
         console.log(req.session.username)
-        db.query('UPDATE registered_users SET rankme_name = ?, deaths = ?, score = ?, kills = ?, headshots = ?, match_win = ?, match_lose = ?, match_draw = ? WHERE name = ?', 
-        [res[0].name, res[0].deaths, res[0].score, res[0].kills, res[0].headshots, res[0].match_win, res[0].match_lose, res[0].match_draw, req.session.username], (err, result) => {
+        db.query('UPDATE registered_users SET rankme_name = ? WHERE name = ?', 
+        [res[0].name, req.session.username], (err, result) => {
             console.log('hey')
         })
        
