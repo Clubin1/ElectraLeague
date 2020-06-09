@@ -1,0 +1,140 @@
+.btn-2{
+    position: relative;
+    left: 6rem!important;
+    top: -1.3rem!important;
+}
+
+.form-container form{
+    background: rgb(22,22,22);
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: transparent;
+}
+
+.form-container input{
+    background: #eee;
+    border: none!important;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+.ban-title-admin, .event-title-admin, .article-title-admin{
+    color: rgb(222,222,222)
+}
+.form-container input{
+    background-color: rgb(41, 41, 41);
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
+input:focus::-webkit-input-placeholder {
+    color: rgb(255, 251, 251);
+    
+}
+/* Firefox < 19 */
+input:-moz-placeholder {
+    color: #999;
+}
+input:focus:-moz-placeholder {
+    color: rgb(255, 251, 251);
+}
+/* Firefox > 19 */
+input::-moz-placeholder {
+    color: #999;
+}
+input:focus::-moz-placeholder {
+    color: rgb(255, 251, 251);
+}
+
+/* Internet Explorer 10 */
+input:-ms-input-placeholder {
+    color: #999;
+}
+input:focus:-ms-input-placeholder {
+    color: rgb(255, 251, 251);
+}
+
+input{
+    transition: 300ms ease all;
+}
+input{
+    caret-color: rgb(21, 255, 0);
+}
+input:hover{
+    background: rgb(88,88,88);
+    border: 1px solid rgb(0, 255, 0)
+}
+input:focus{
+    background: rgb(88,88,88);
+}
+
+form label{
+    color: rgb(148, 148, 148);
+}
+
+.form-btn{
+    color: white!important;
+}
+.form-btn:hover{
+    background-color:rgb(118, 213, 115)!important;
+}
+.user-container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.user-container h4{
+    padding-bottom: 1.5rem;
+}
+.search-name{
+    color:rgb(148, 148, 148)!important;
+}
+
+@media(max-width: 608px) {
+    .search-bar, .search-name{
+        width: 20rem!important;
+    }
+}
+
+@media(max-width: 507px) {
+    .search-bar, .search-name{
+        left: -7rem;
+        position: relative;
+    }
+}
+
+@media(max-width: 397px) {
+    .search-bar, .search-name{
+        width: 17rem!important;
+    }
+}
+
+@media(max-width: 360px) {
+    .search-bar, .search-name{
+        left: -9rem;
+        position: relative;
+    }
+}
+
+@media(max-width: 320px) {
+    .search-bar, .search-name{
+        left: -9.6rem;
+        position: relative;
+    }
+}
+
+@media(max-width: 768px) {
+    .user-container h1{
+        font-size: 1.7rem;
+    }
+    .user-container h4{
+        font-size: 1.2rem;
+    }
+}

@@ -1,16 +1,38 @@
+ 
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="login.css">
 <h1>Login</h1>
 <% if (messages.error) { %>
     <%= messages.error %>
 <% } %>
-<form action="/admin_login" method="POST">
-    <h1>Admin Login</h1>
-    <div>
-        <label for="name">name</label>
-        <input type="name" id="name" name="name" required>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+
+<div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="/admin_login" method="POST">
+                <h1>Admin Sign In</h1>
+                <div class="social-container">
+                    <a href="https://twitter.com/ElectraLeague" target="_blank" class="social"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.twitch.tv/electraleague" target="_blank" class="social"><i class="fab fa-twitch"></i></a>
+                </div>
+                <input placeholder="name" type="name" id="name" name="name" />
+                <input placeholder="password" type="password" id="password" name="password" required/>
+                <button type="submit" class="si">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To Keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello Admin,</h1>
+                    <p>If you do not have access to an admin account return to <br> the regular login or sign up <a class="admin" href="/login">here.</a></p>
+                    <a href="/register"><button class="ghost" id="signUp">Sign Up</button></a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label for="password">password</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Login</button>
-</form>

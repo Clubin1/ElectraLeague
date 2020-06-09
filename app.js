@@ -166,8 +166,8 @@ app.post('/admin_login', passport.authenticate('local', {
     failureFlash: true
   }))
 
-  app.delete('/logout', (request, response) => {
-    request.session.loggedin = false;
+  app.delete('/admin_logout', (request, response) => {
+    request.session.loggedIn = false;
     response.redirect('/admin_login');
 })
 
