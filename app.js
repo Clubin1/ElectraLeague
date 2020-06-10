@@ -276,24 +276,31 @@ app.post('/login', function(request, response) {
 });
 //User Page and account linkage
 app.get('/user', (req,res) =>{
+    console.log(`hello ${req.session.username} <======`)
    
     db.query('SELECT * FROM registered_users;', (err, result) => {
         
     
         if(err) throw err
         console.log(result) 
-        
         if(req.session.loggedin){
- 
-                    res.render('user_profile.ejs', {
-                        username:req.session.username,
-                        article:result
-                        
-                    })
+        db.query('SELECT * FROM registered_users WHERE name = ?', [req.session.username], (error, response) => {
+            console.log(`hello ${JSON.stringify(response)} <======`)
+     
+                        res.render('user_profile.ejs', {
+                            username:req.session.username,
+                            article:result,
+                            person: response
+                            
+                        })
+    
+          
 
-        } else{
-            res.redirect('/login')
-        }
+        })
+    } else{
+        res.redirect('/login')
+    }
+        
      console.log(req.session.username)
     })
 
