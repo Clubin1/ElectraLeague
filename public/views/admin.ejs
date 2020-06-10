@@ -126,7 +126,12 @@
                 <!--  <% article.forEach(function(articles){%>
        <h1> <%= articles.newsName %> </h1>
        <% }) %>-->
-       <div class="container-admin">
+       <div
+       data-aos="fade"
+       data-aos-offset="-300"
+       data-aos-duration="1300"
+       data-aos-easing="ease-in-out"
+       class="container-admin">
         <div class="post-news">
             <div class="form-wrapper">
                 <h1 class="article-title-admin">News</h1>
@@ -153,7 +158,12 @@
         </div>-->
      
         
-        <div class="post-ban">
+        <div 
+        data-aos="fade"
+        data-aos-offset="-300"
+        data-aos-duration="1300"
+        data-aos-easing="ease-in-out"
+        class="post-ban">
             <h1 class="ban-title-admin">Ban Players</h1>
             <form class="form-container"action="/admin3" method="post">
                 <label for="name">Enter the details on the banned player</label>
@@ -168,7 +178,12 @@
      
      
      
-        <form action="/admin_logout?_method=delete" method="POST">
+        <form 
+        data-aos="fade"
+        data-aos-offset="-300"
+        data-aos-duration="1300"
+        data-aos-easing="ease-in-out"
+        action="/admin_logout?_method=delete" method="POST">
                 <a href="/register"><button type="submit" class="btn-light btn-4 btn-hide">Logout</button></a>
         </form>
           
