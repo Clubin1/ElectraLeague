@@ -45,6 +45,12 @@
             data-aos-easing="ease-in-out"
             data-aos-duration="1900"
             class="list-unstyled components">
+            <li class="">
+                <a href="/user">
+                    <i class="fas fa-user"></i>
+                    User: <%= username %>
+                </a>
+            </li>
                 <li class="active">
                     <a href="/">
                         <i class="fas fa-home"></i>
@@ -107,27 +113,34 @@
     
         -->
                 <div id="content">
-                        <nav 
-                        data-aos="fade"
-                        data-aos-offset="300"
-                        data-aos-duration="900"
-                        data-aos-easing="ease-in-out"
-                        class="navbar top-nav navbar-expand-lg navbar-light bg-light">
-                            <div class="container-fluid">
-                                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                                    <i class="fas fa-align-left"></i>
-                                    <span>Toggle Sidebar</span>
-                                </button>
-                                    <ul class="nav navbar-nav ml-auto">
-                                           <a href="/login"><button class="btn-light btn-1 btn-hide">Login</button></a>
-                                        </li>
-                                    </ul>
-                                    <ul class="nav nav-position navbar-nav ml-auto">
-                                        <a href="/register"><button class="btn-light btn-2 btn-hide">Register</button></a>
-                                     </li>
-                                 </ul>
-                            </div>
-                        </nav>    
+                    <nav 
+                    data-aos="fade"
+                    data-aos-offset="300"
+                    data-aos-duration="900"
+                    data-aos-easing="ease-in-out"
+                    class="navbar top-nav navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                                <i class="fas fa-align-left"></i>
+                                <span>Toggle Sidebar</span>
+                            </button>
+                             <ul class="nav navbar-nav ml-auto">
+                                <a href="/login"><button id="btn-js-show2" class="btn-light btn-1 ">Profile</button></a>
+                                <a href="/login"><button id="btn-js2" class="btn-light btn-1 ">Login</button></a>
+    
+                             </li>
+                         </ul>
+                         <ul class="nav nav-position navbar-nav ml-auto">
+    
+                        <form action="/user_logout?_method=delete" method="POST">
+                             <a href="/login"><button id="btn-js-show" class="btn-light btn-2 ">Logout</button></a>
+                        </form>
+                             <a href="/register"><button id="btn-js" class="btn-light btn-2 ">Register</button></a>
+    
+                          </li>
+                      </ul>
+                        </div>
+                    </nav>      
                         <div 
                         data-aos="fade"
                         data-aos-offset="-300"
@@ -227,7 +240,9 @@
                         </div>
             </div>
         
-
+            <%if (loggedIn) { %>
+                <script src="hide.js"></script>
+            <% } %>
     </body>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>

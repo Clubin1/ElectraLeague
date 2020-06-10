@@ -265,7 +265,7 @@ app.post('/login', function(request, response) {
 				request.session.username = username;
 				response.redirect('/user');
 			} else {
-				response.send('Incorrect Username and/or Password!');
+                response.redirect('/login')
 			}			
 			response.end();
 		});
