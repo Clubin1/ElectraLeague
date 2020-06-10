@@ -947,6 +947,7 @@ button .btn-hide:hover{
   justify-content: center!important;
   flex-direction: column!important;
   display: flex!important;
+
 }
 
 a .btn-4:hover{
@@ -987,8 +988,11 @@ a .btn-4, a .btn-4{
 
 @media(max-width:439px) {
   .table-wrapper{
-    min-width: 93rem;
-    width: 93rem;
+    position: relative;
+    left: -4rem!important;
+  }
+  body{
+    background-color: rgb(22,22,22);
   }
   }
 
