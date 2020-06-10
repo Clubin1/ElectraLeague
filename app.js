@@ -152,7 +152,8 @@ app.post('/admin_login', function(request, response) {
 				request.session.username = username;
 				response.redirect('/admin');
 			} else {
-				response.send('Incorrect Username and/or Password!');
+                request.flash('error', 'You are logged out');
+                response.redirect('/admin_login');
 			}			
 			response.end();
 		});
@@ -204,6 +205,7 @@ app.get('/admin', (req, res) => {
 });
 */
 app.get('/admin', (req,res) =>{
+    req.flash('error', null);
     db.query('SELECT * FROM article;', (err, result) => {
         if(err) throw err
         console.log(result) 
