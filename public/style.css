@@ -1002,3 +1002,17 @@ a .btn-4, a .btn-4{
       left: -18rem!important;
     }
   }
+ .error-message{
+  text-decoration: none;
+  list-style:none;
+  color:red!important;
+  padding-top: .5rem;
+}
+
+.success-message{
+  text-decoration: none;
+  list-style:none;
+  color:green!important;
+  padding-top: .5rem;
+}
+

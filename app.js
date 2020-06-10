@@ -10,6 +10,7 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const flush = require('connect-flash')
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
@@ -66,6 +67,7 @@ app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 app.use(fileUpload()); // configure fileupload
 app.use(flash())
+app.use(flush())
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -74,7 +76,6 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
-
 //BRINGING IN ROUTES//
 app.get('/', getHomePage);
 app.get('/leaderboard', getLeaderboardPage);
@@ -105,10 +106,44 @@ app.get('/player/:single', (req,res) => {
 //-----POST NEWS REQUEST CODE------//
 app.post('/admin', (req, res) => {
     db.query('INSERT INTO article (name, body, imgg) Value(?, ?, ?);', [req.body.name, req.body.article, req.body.imgg], (err, result)=>{
-        if(err) throw err;
+        if(!err){
+            req.flash('error', 'News article posted successfully')
+            res.redirect('/admin')
+        } else {
+            res.redirect('/admin')
+        }
     })
-    res.redirect('/admin')
 })
+
+app.get('/admin_ban', (req,res) =>{
+    const errors = req.flash().error || []
+    db.query('SELECT * FROM article;', (err, result) => {
+        if(err) throw err
+        console.log(result) 
+        
+        if(req.session.loggedIn){
+            res.render('admin_ban.ejs', {
+                name:req.session.username,
+                article:result,
+                errors,
+            })
+        } else{
+            res.redirect('/admin_login')
+        }
+    })
+})
+//-----POST BANS REQUEST CODE------//
+app.post('/admin_ban', (req, res) => {
+    db.query('INSERT INTO banned_users (name, type, game, duration, steam_id) Value(?, ?, ?, ?, ?);', [req.body.name, req.body.type, req.body.game, req.body.duration, req.body.steam_id], (err, result)=>{
+        if(!err){
+            req.flash('error', 'User banned successfully')
+            res.redirect('/admin_ban')
+        }else{
+            res.redirect('/admin_ban')
+        }
+    })
+})
+
 //-----POST EVENTS REQUEST CODE------//
 
 /*
@@ -119,12 +154,23 @@ app.post('/admin2', (req, res) => {
     res.redirect('/admin')
 })
 */
-//-----POST BANS REQUEST CODE------//
-app.post('/admin3', (req, res) => {
-    db.query('INSERT INTO banned_users (name, type, game, duration, steam_id) Value(?, ?, ?, ?, ?);', [req.body.name, req.body.type, req.body.game, req.body.duration, req.body.steam_id], (err, result)=>{
-        if(err) throw err;
+//Admin Route
+app.get('/admin', (req,res) =>{
+    const errors = req.flash().error || []
+    db.query('SELECT * FROM article;', (err, result) => {
+        if(err) throw err
+        console.log(result) 
+        
+        if(req.session.loggedIn){
+            res.render('admin.ejs', {
+                name:req.session.username,
+                article:result,
+                errors
+            })
+        } else{
+            res.redirect('/admin_login')
+        }
     })
-    res.redirect('/admin')
 })
 
 function checkAuthenticated(req, res, next) {
@@ -152,6 +198,7 @@ app.post('/admin_login', function(request, response) {
 				request.session.username = username;
 				response.redirect('/admin');
 			} else {
+                request.flash('error', 'Invalid Password and or Username')
                 //Put flash message
                 response.redirect('/admin_login')
 			}			
@@ -182,8 +229,12 @@ app.post('/admin_login', passport.authenticate('local', {
 //Register
 app.post('/register', (req, res) => {
     db.query('INSERT INTO registered_users (name, email, password) Value(?, ?, ?);', [req.body.name, req.body.email ,req.body.password], (err, result)=>{
-        if(err) throw err;
-        res.redirect('/login')
+        if(!err){
+            req.flash('error', 'User created successfully')
+            res.redirect('/register')
+        } else {
+            res.redirect('/register')
+        }
     })
 })
 
@@ -204,24 +255,10 @@ app.get('/admin', (req, res) => {
 	res.end();
 });
 */
-app.get('/admin', (req,res) =>{
-    db.query('SELECT * FROM article;', (err, result) => {
-        if(err) throw err
-        console.log(result) 
-        
-        if(req.session.loggedIn){
-            res.render('admin.ejs', {
-                name:req.session.username,
-                article:result
-            })
-        } else{
-            res.redirect('/admin_login')
-        }
-    })
-})
 
 //Admin login
 app.get('/admin_login', (req,res) =>{
+    const errors = req.flash().error || []
     db.query('SELECT * FROM admin_users;', (err, result) => {
         if(err) throw err
         console.log(result) 
@@ -230,7 +267,8 @@ app.get('/admin_login', (req,res) =>{
             res.redirect('/admin')
         } else{
             res.render('admin_login.ejs', {
-                article:result
+                article:result,
+                errors
             })
         }
     })
@@ -239,6 +277,7 @@ app.get('/admin_login', (req,res) =>{
 
 //User login
 app.get('/login', (req,res) =>{
+    const errors = req.flash().error || []
     db.query('SELECT * FROM registered_users;', (err, result) => {
         if(err) throw err
         console.log(result) 
@@ -247,10 +286,10 @@ app.get('/login', (req,res) =>{
             res.redirect('/user')
         } else{
             res.render('login.ejs', {
-                article:result
+                article:result,
+                errors
             })
         }
-        
     
     })
 })
@@ -263,9 +302,10 @@ app.post('/login', function(request, response) {
 			if (results.length > 0) {
                 request.session.loggedin = true;
                 request.session.loggedIN = true;
-				request.session.username = username;
+                request.session.username = username;
 				response.redirect('/user');
 			} else {
+                request.flash('error', 'Invalid Password and or Username')
                 response.redirect('/login')
                 //put flash message
 			}			
@@ -359,6 +399,7 @@ module.exports = {
 */
 
 app.get('/register', (req,res) =>{
+    const errors = req.flash().error || []
     db.query('SELECT * FROM registered_users;', (err, result) => {
         if(err) throw err
         console.log(result) 
@@ -367,7 +408,8 @@ app.get('/register', (req,res) =>{
             res.send('Please logout to register an account')
         } else{
             res.render('register.ejs', {
-                user: result
+                user: result,
+                errors
             });
         }
     })

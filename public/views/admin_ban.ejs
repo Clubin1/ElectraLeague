@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -123,29 +124,34 @@
                      </ul>
                 </div>
             </nav>    
-       <div
-       data-aos="fade"
-       data-aos-offset="-300"
-       data-aos-duration="1300"
-       data-aos-easing="ease-in-out"
-       class="container-admin">
-        <div class="post-news">
-            <div class="form-wrapper">
-                <% for (let i=0; i<errors.length; i++) { %>
-                    <li class="success-message"><%= errors[i]%> </li>
-                <% } %>
-                <h1 class="article-title-admin">News</h1>
-                <form class="form-container"action="/admin" method="post">
-                    <label for="name">Enter the name and body in the database</label>
-                    <input type="text" name="name" placeholder="article name">
-                    <input type="text" name="article" placeholder="article body">
-                    <input type="text" name="imgg" placeholder="article image">
-         
+            <div
+            data-aos="fade"
+            data-aos-offset="-300"
+            data-aos-duration="1300"
+            data-aos-easing="ease-in-out"
+            class="container-admin">
+            <div 
+            data-aos="fade"
+            data-aos-offset="-300"
+            data-aos-duration="1300"
+            data-aos-easing="ease-in-out"
+            class="post-ban">
+            <% for (let i=0; i<errors.length; i++) { %>
+                <li class="success-message"><%= errors[i]%> </li>
+            <% } %>
+                <h1 class="ban-title-admin">Ban Players</h1>
+                <form class="form-container"action="/admin_ban" method="POST">
+                    <label for="name">Enter the details on the banned player</label>
+                    <input type="text" name="name" placeholder="name">
+                    <input type="text" name="type" placeholder="type">
+                    <input type="text" name="game" placeholder="game">
+                    <input type="text" name="duration" placeholder="duration">
+                    <input type="text" name="steam_id" placeholder="steam_id">
                     <input class="form-btn" type="submit" value="submit" />
                     </form>
             </div>
-        </div>
-     
+            
+            
         <!--<div class="post-news">
             <h1 class="event-title-admin">Events</h1>
             <form class="form-container" action="/admin2" method="post">
@@ -157,15 +163,12 @@
                 </form>
         </div>-->
      
-
-                <a
-                data-aos="fade"
-                data-aos-offset="-300"
-                data-aos-duration="1300"
-                data-aos-easing="ease-in-out"
-                href="/admin_ban"><button class="btn-light btn-4 btn-ban btn-hide">Ban</button></a>
- 
-          
+        <a
+        data-aos="fade"
+        data-aos-offset="-300"
+        data-aos-duration="1300"
+        data-aos-easing="ease-in-out"
+        href="/admin"><button class="btn-light btn-4 btn-ban btn-hide">News</button></a>
         <form 
         data-aos="fade"
         data-aos-offset="-300"
@@ -174,10 +177,8 @@
         action="/admin_logout?_method=delete" method="POST">
                 <a href="/register"><button type="submit" class="btn-light btn-4 btn-hide">Logout</button></a>
         </form>
-
-        
           
-    
+    </div>
     </div>
     </div> 
     <!-- jQuery CDN - Slim version (=without AJAX) -->

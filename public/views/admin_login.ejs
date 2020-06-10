@@ -3,15 +3,16 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="login.css">
 <h1>Login</h1>
-<% if (messages.error) { %>
-    <%= messages.error %>
-<% } %>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
 
 <div class="container" id="container">
         <div class="form-container sign-in-container">
             <form action="/admin_login" method="POST">
                 <h1>Admin Sign In</h1>
+                <% for (let i=0; i<errors.length; i++) { %>
+                    <li class="error-message"><%= errors[i]%> </li>
+                <% } %>
                 <div class="social-container">
                     <a href="https://twitter.com/ElectraLeague" target="_blank" class="social"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.twitch.tv/electraleague" target="_blank" class="social"><i class="fab fa-twitch"></i></a>
