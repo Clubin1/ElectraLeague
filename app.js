@@ -313,8 +313,8 @@ app.post('/user', (req, res) => {
     db.query('SELECT * FROM rankme WHERE name = ?', [req.body.name], (err, res) => {
         if(err) throw err
         console.log(req.session.username)
-        db.query('UPDATE registered_users SET rankme_name = ?, rankme_score = ? WHERE name = ?', 
-        [res[0].name, res[0].score, req.session.username], (err, result) => {
+        db.query('UPDATE registered_users SET rankme_name = ?, rankme_score = ?, rankme_wins = ?, rankme_losses = ?, rankme_kills = ?, rankme_draws = ? WHERE name = ?', 
+        [res[0].name, res[0].score, res[0].match_win, res[0].match_lose, res[0].kills, res[0].match_draw, req.session.username], (err, result) => {
             console.log('hey')
         })
        
